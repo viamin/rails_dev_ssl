@@ -32,6 +32,7 @@ module RailsDevSsl
     def generate_certificates
       raise "Directory (#{dir}) doesn't exist" unless Dir.exist?(dir)
 
+      generate_config unless File.exist?(File.join(dir, 'server.csr.cnf'))
       begin
         temp_file = password_file
         safe_path = Shellwords.escape(temp_file.path)

@@ -1,6 +1,6 @@
 # RailsDevSsl
 
-`rails-dev-ssl` is a command line utility that takes some of the work out of generating the SSL certificates for local development.
+`rails_dev_ssl` is a command line utility that takes some of the work out of generating the SSL certificates for local development.
 
 This utility will help you set up your development machine to serve your Rails API over HTTPS.
 
