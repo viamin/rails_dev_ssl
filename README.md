@@ -49,6 +49,8 @@ You can change the certificate directory using `setup <directory>`, for example,
 
 You can generate the `server.crt.cnf` file using the `generate_config` command.
 
+You may want to add this directory to your project's `.gitignore` file.
+
 #### Browser warnings
 
 When you use your first self-signed certificate, your browser will warn you about an untrusted certificate authority. You'll need to trust the rootCA you created for your project.
