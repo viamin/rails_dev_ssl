@@ -1,11 +1,11 @@
-# 0.1.0
+# 0.1.2
 
-- Initial working version
+- Fixed the display_certificates command and added a test
 
 # 0.1.1
 
 - Make generate_certificates a 1-step process
 
-# 0.1.2
+# 0.1.0
 
-- Fixed the display_certificates command and added a test
+- Initial working version
