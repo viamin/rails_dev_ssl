@@ -24,7 +24,7 @@ module RailsDevSsl
     def display_certificate
       raise 'Certificate missing. Have you generated the certificate already?' unless File.exist?(File.join(dir, 'server.crt'))
 
-      `openssl x509 -text -in #{File.join(dir, 'server.crt')} -noout`
+      puts `openssl x509 -text -in #{File.join(dir, 'server.crt')} -noout`
     end
 
     desc 'generate_certificates', 'generate SSL certificates'

@@ -103,4 +103,11 @@ RSpec.describe RailsDevSsl do
       expect(File.exist?(File.join(ssl_dir, 'server.csr'))).to be false
     end
   end
+
+  describe 'display_certificate', :setup_cleanup do
+    it 'outputs to stdout', :create_config do
+      command(:generate_certificates)
+      expect { command(:display_certificate) }.to output(/Certificate:/).to_stdout
+    end
+  end
 end
