@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rails_dev_ssl/version'
+require "rails_dev_ssl/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rails_dev_ssl'
-  spec.version       = RailsDevSsl::VERSION
-  spec.authors       = ['Bart Agapinan']
-  spec.email         = ['bart@sonic.net']
+  spec.name = "rails_dev_ssl"
+  spec.version = RailsDevSsl::VERSION
+  spec.authors = ["Bart Agapinan"]
+  spec.email = ["bart@sonic.net"]
 
-  spec.summary       = 'Use SSL for rails development'
-  spec.description   = 'Generate SSL certificates for your rails development environment'
-  spec.homepage      = 'https://github.com/viamin/rails_dev_ssl'
-  spec.license       = 'MIT'
+  spec.summary = "Use SSL for rails development"
+  spec.description = "Generate SSL certificates for your rails development environment"
+  spec.homepage = "https://github.com/viamin/rails_dev_ssl"
+  spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['homepage_uri'] = spec.homepage
-    spec.metadata['source_code_uri'] = 'https://github.com/viamin/rails_dev_ssl'
-    spec.metadata['changelog_uri'] = 'https://github.com/viamin/rails_dev_ssl/blob/master/CHANGELOG.md'
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = "https://github.com/viamin/rails_dev_ssl"
+    spec.metadata["changelog_uri"] = "https://github.com/viamin/rails_dev_ssl/blob/master/CHANGELOG.md"
   else
-    raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
   end
 
   # Specify which files should be added to the gem when it is released.
@@ -31,14 +31,14 @@ Gem::Specification.new do |spec|
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ['lib']
+  spec.bindir = "exe"
+  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 
-  spec.add_dependency 'thor', '~> 1.0'
+  spec.add_dependency "thor", "~> 1.0"
 
-  spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'pry', '~> 0.12.2'
-  spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "pry", "~> 0.12.2"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end

@@ -14,36 +14,50 @@ gem 'rails_dev_ssl', group: :development
 
 And then execute:
 
-    $ bundle
+```sh
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install rails_dev_ssl
+```sh
+gem install rails_dev_ssl
+```
 
 ## Usage
 
-#### Generate certificates
+For a list of available commands, run
 
-`rails_dev_ssl generate_certificates` will create a new directory in your project folder called "ssl" and ask for information to be added to your local certificate authority. Inside the `ssl` directory will be your config file and `server.crt` and `server.key` files.
+```sh
+rails_dev_ssl
+```
 
-#### Configuring puma
+### Generate certificates
+
+```sh
+rails_dev_ssl generate_certificates
+```
+
+ will create a new directory in your project folder called "ssl" and ask for information to be added to your local certificate authority. Inside the `ssl` directory will be your config file and `server.crt` and `server.key` files.
+
+## Configuring puma
 
 If you use puma to serve your app, you can use your new certificates by passing them when calling puma:
 
-```
+```sh
 puma -C config/puma.rb -b 'ssl://127.0.0.1:<port>?key=./ssl/server.key&cert=./ssl/server.crt'
 ```
 
 or in `config/puma.rb`:
 
-```
+```ruby
 ssl_bind '127.0.0.1', '<port>', {
   key: ./ssl/server.key,
   cert: ./ssl/server.crt
 }
 ```
 
-#### Customization
+## Customization
 
 You can change the certificate directory using `setup <directory>`, for example, `rails_dev_ssl setup lib/ssl` to put the certificates inside your lib directory.
 
@@ -51,15 +65,21 @@ You can generate the `server.crt.cnf` file using the `generate_config` command.
 
 You may want to add this directory to your project's `.gitignore` file.
 
-#### Browser warnings
+## Browser warnings
 
 When you use your first self-signed certificate, your browser will warn you about an untrusted certificate authority. You'll need to trust the rootCA you created for your project.
 
 Chrome and Firefox will ask you to add the certificate authority in the app. To use Safari, you'll need to add the CA to your keychain. You can do this with the `add_ca_to_keychain` command.
 
-#### /etc/hosts
+## /etc/hosts
 
-You may want to add an entry to your `/etc/hosts` file to include the CN you set in the `generate_config` step. This will allow you to visit the domain in your browser instead of using 127.0.0.1 (for example, https://localhost.ssl/path/to/your/app.)
+You may want to add an entry to your `/etc/hosts` file to include the CN you set in the `generate_config` step. This will allow you to visit the domain in your browser instead of using 127.0.0.1 (for example, `https://localhost.ssl/path/to/your/app`.)
+
+Add this line to your `/etc/hosts` file:
+
+```text
+127.0.0.1 localhost.ssl
+```
 
 ## Development
 
@@ -71,7 +91,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/viamin/rails_dev_ssl.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/viamin/rails_dev_ssl](https://github.com/viamin/rails_dev_ssl).
 
 ## License
 
